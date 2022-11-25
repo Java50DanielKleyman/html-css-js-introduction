@@ -1,0 +1,32 @@
+.board {
+    display: flex;
+    flex-direction: column;
+}
+.board-row {
+    display: flex;
+    flex-direction: board-row;
+/*justify-content:left;*/
+width: 50vw;
+}
+.cell-white {
+    width: 5vw;
+    height: 5vw;
+    border: solid 1px grey;
+    background-color: white;
+}
+.cell-white-black {
+    width: 5vw;
+    height: 5vw;
+    border: solid 1px grey;
+    background-color: black;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-top: 50px;
+}
+/*html{
+    height: 100%;
+}*/
