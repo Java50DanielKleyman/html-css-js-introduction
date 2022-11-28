@@ -73,10 +73,12 @@ html{
     display: inline;
     color:rgb(196, 161, 161);
     font-size: 4.5vw;
+    margin-left: 0.25vw;
 }
-.figures_black
+    .figures_black
 {
     display: inline;
     color:rgb(12, 0, 0);
     font-size: 4.5vw; 
+    margin-left: 0.25vw;
 }
