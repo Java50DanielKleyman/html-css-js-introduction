@@ -68,3 +68,15 @@ html{
    
     height: 100%;
 }
+.figures_white
+{
+    display: inline;
+    color:rgb(196, 161, 161);
+    font-size: 4.5vw;
+}
+.figures_black
+{
+    display: inline;
+    color:rgb(12, 0, 0);
+    font-size: 4.5vw; 
+}
