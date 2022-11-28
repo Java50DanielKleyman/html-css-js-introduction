@@ -1,0 +1,53 @@
+.board
+{
+    display:flex;
+    flex-direction: column;
+}
+.board-row
+{
+    display:flex;
+    align-items: center; 
+    flex-direction: row;
+}
+.cell-black
+{
+width: 5vw;
+height: 5vw;
+border: solid 1px black;
+background-color: rgb(184, 30, 30);
+font-size: 60px;
+
+}
+.cell-white
+{
+    width: 5vw;
+    height: 5vw;
+    border: solid 1px black;
+    background-color: blanchedalmond;
+    font-size: 60px;
+}
+.numbers
+{
+    width: 5vw;
+    height: 5vw;
+    border: solid 1px transparent;
+
+}
+.letters
+{
+    width: 5vw;
+    height: 5vw;  
+    border: solid 1px transparent;
+}
+body
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    
+}
+html
+{
+    height: 100%;  
+}

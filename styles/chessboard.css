@@ -1,32 +1,70 @@
 .board {
     display: flex;
     flex-direction: column;
+    
 }
 .board-row {
     display: flex;
-    flex-direction: board-row;
-/*justify-content:left;*/
+   flex-direction: row;
+ /*  justify-content: space-between;*/
+justify-content:left;
 width: 50vw;
+
+}
+.number {
+    width: 1.5vw;
+    height: 5vw;
+ 
+}
+.vertical {
+    font-size: x-large;
+    margin-right: 1vw;
+}
+.vertical1
+{
+    font-size: x-large;
+    margin-left: 0.6vw;
+}
+.horizontal{
+    display: inline;
+    margin-left: 2.5vw;
+    
+    font-size: xx-large;
+
+}
+.horizontal2
+{
+    display: inline;
+   
+    font-size: xx-large;
+}
+.cell
+{width: 5vw;
+    
 }
 .cell-white {
     width: 5vw;
     height: 5vw;
     border: solid 1px grey;
-    background-color: white;
+    background-color: rgb(231, 210, 210);
 }
+
 .cell-black {
     width: 5vw;
     height: 5vw;
     border: solid 1px grey;
-    background-color: black;
+    background-color: rgb(59, 17, 17);
 }
 body{
+    margin-left: 6vw;
+    background-size: 100% 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
+  align-items: center;
     height: 100%;
-    margin-top: 50px;
+    
 }
-/*html{
+html{
+   
     height: 100%;
-}*/
+}
