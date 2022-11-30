@@ -2,9 +2,13 @@ html {
     height: 100%;
     }
     body{
-        background-size: 100% 100%;
+        
+      background-position: center;
+        background-repeat: repeat;
         height: 100%;
-        background-repeat: initial;
+        
+        
+        background-image: url(/images/White-House.jpg);
         display: flex;
         flex-direction: column;
         margin: 0;
@@ -12,11 +16,13 @@ html {
     }
     .logo{
         display: block;
+        color: rgb(255, 255, 0);
         text-align: center;
         /*background-color: rgb(184, 204, 197);*/
         background-size: 100% 100%;
         font-size: 1.5em;
         text-transform: uppercase;
+        background-image: url(/images/conf.jpg);
         /*background-image: url("images/conf.jpg");*/
     }
     .main-class{
@@ -42,7 +48,7 @@ html {
     .thumbnails-list{
         display: flex;
         flex-wrap: wrap;
-        max-height: 25vh;
+        max-height: 40vh;
         overflow-y: scroll;
         list-style: none;
         justify-content: space-around;
@@ -53,7 +59,7 @@ html {
     border: solid 2px blue;
     margin-top: 2vh;
     border-radius: 25%;
-    overflow:hidden;
+    overflow: hidden;
     
     }
     .thumbnails-image{
