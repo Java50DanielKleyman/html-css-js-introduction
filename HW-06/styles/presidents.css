@@ -112,14 +112,14 @@ html {
            ;
         }
         .thumbnails-item{
-            min-height: 21vw;
+            min-height: 19vw;
             margin-bottom: 2vw;
            
         }
         .thumbnails-image{
            
-            height: 19vw;
-            width: 15vw;
+            height: 17vw;
+            width: 13vw;
             
         }
         .thumbnails-anchor{
