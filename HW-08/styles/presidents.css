@@ -94,6 +94,7 @@ h2 {
     position: absolute;
     left:14%;
     bottom: 1%;
+    
 }
 
 .thumbnails-list {
@@ -199,6 +200,8 @@ h2 {
         min-width: 22vw;
         max-width: 22vw;
         left: 3vw;
+       
+        
      }
 }
 
