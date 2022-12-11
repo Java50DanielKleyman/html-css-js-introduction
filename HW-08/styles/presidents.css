@@ -92,7 +92,7 @@ h2 {
     background-color: aliceblue;
     font-family: lakeshore;
     position: absolute;
-    left:1%;
+    left:14%;
     bottom: 1%;
 }
 
@@ -195,6 +195,11 @@ h2 {
         margin-top: 12vh;
 
     }
+    .details-title{
+        min-width: 22vw;
+        max-width: 22vw;
+        left: 3vw;
+     }
 }
 
 @media (min-width: 1000px) {
