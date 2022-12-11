@@ -11,7 +11,7 @@ body {
     --thumbnails-image-width: 20vw;
     --thumbnails-image-height: 25vw;
     --thumbnails-title-height: calc(var(--thumbnails-image-height)*0.2);
-    --details-image-width: 35 vh;
+   /* --details-image-width: 35 vh;*/
     --details-image-height: 50vh;
 }
 
@@ -66,6 +66,7 @@ h2 {
 .details-container {
     display: flex;
     flex-direction: column;
+    
     align-items: center;
     margin-top: 5vh;
     margin-bottom: 2vh;
@@ -74,9 +75,11 @@ h2 {
 }
 .details-frame{
     position: relative;
+  
+
 }
 .details-image {
-    width: var(--details-image-width);
+    /*width: var(--details-image-width);*/
     height: var(--details-image-height);
     border-radius: 25%;
     
@@ -84,13 +87,13 @@ h2 {
 
 .details-title {
     display: block;
-    font-size: 1.45em;
-    
+    font-size: 1em;
+    text-align: center;
     background-color: aliceblue;
     font-family: lakeshore;
     position: absolute;
-    left:-1vw;
-    bottom: 5vh;
+    left:1%;
+    bottom: 1%;
 }
 
 .thumbnails-list {
@@ -115,7 +118,7 @@ h2 {
     margin-left: 1vw;
 }
 .thumbnails-item:hover{
-    transform: scale(1.1);
+    transform: rotate(180deg);/*scale(1.1);*/
 }
 
 .thumbnails-image {
@@ -151,7 +154,7 @@ h2 {
     body {
         --thumbnails-image-width: 13vw;
         --thumbnails-image-height: 17vw;
-        --details-image-width: 30vw;
+        /*--details-image-width: 30vw;*/
         --details-image-height: 75vh;
     }
 
@@ -198,7 +201,15 @@ h2 {
     .thumbnails-list {
         padding-right: 10vw;
     }
-
+.details-title{
+   min-width: 22vw;
+   max-width: 22vw;
+   left: 6vw;
+}
+.details-image{
+    min-width: 34vw;
+    max-width: 34vw;
+}
     .logo {
 
         background-size: contain;
