@@ -11,7 +11,7 @@ body {
     --thumbnails-image-width: 20vw;
     --thumbnails-image-height: 25vw;
     --thumbnails-title-height: calc(var(--thumbnails-image-height)*0.2);
-   /* --details-image-width: 35 vh;*/
+    /* --details-image-width: 35 vh;*/
     --details-image-height: 50vh;
 }
 
@@ -27,15 +27,21 @@ body {
     flex-direction: column;
     margin: 0;
     animation-name: example;
-  animation-duration: 4s;
-  animation-delay: 2s;
-  animation-iteration-count: 3;
-  animation-direction: alternate;
+    animation-duration: 4s;
+    animation-delay: 2s;
+    animation-iteration-count: 3;
+    animation-direction: alternate;
 }
+
 @keyframes example {
-    from {background-image: url(../images/White-House.jpg);}
-    to {background-image: url(../images/kremlin.jpg);}
-  }
+    from {
+        background-image: url(../images/White-House.jpg);
+    }
+
+    to {
+        background-image: url(../images/kremlin.jpg);
+    }
+}
 
 .logo {
     display: block;
@@ -60,29 +66,38 @@ h2 {
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
-    max-height: 87vh;
+    max-height: 90vh;
 }
 
 .details-container {
     display: flex;
     flex-direction: column;
-    
+
     align-items: center;
     margin-top: 5vh;
     margin-bottom: 2vh;
-    
-   
-}
-.details-frame{
-    position: relative;
-  
 
 }
+
+.hidden .details-container {
+    display: none;
+}
+
+.details-frame {
+    position: relative;
+}
+
+#hide-button {
+    position: absolute;
+    right: 3vw;
+    top: vh;
+}
+
 .details-image {
     /*width: var(--details-image-width);*/
     height: var(--details-image-height);
     border-radius: 25%;
-    
+
 }
 
 .details-title {
@@ -92,15 +107,15 @@ h2 {
     background-color: aliceblue;
     font-family: lakeshore;
     position: absolute;
-    left:14%;
+    left: 14%;
     bottom: 1%;
-    
+
 }
 
 .thumbnails-list {
     display: flex;
     flex-wrap: wrap;
-    max-height: 37vh;
+    max-height: 60vh;
     overflow-y: scroll;
     list-style: none;
     justify-content: space-around;
@@ -118,8 +133,10 @@ h2 {
     max-width: var(--thumbnails-image-width);
     margin-left: 1vw;
 }
-.thumbnails-item:hover{
-    transform: rotate(180deg);/*scale(1.1);*/
+
+.thumbnails-item:hover {
+    transform: rotate(180deg);
+    /*scale(1.1);*/
 }
 
 .thumbnails-image {
@@ -196,28 +213,49 @@ h2 {
         margin-top: 12vh;
 
     }
-    .details-title{
+
+    .details-title {
         min-width: 22vw;
         max-width: 22vw;
         left: 3vw;
-       
-        
-     }
+
+    }
+
+    #hide-button {
+        position: absolute;
+        right: 1vw;
+        top: 12vh;
+    }
+
+    .hidden .thumbnails-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-height: 95vh;
+        padding-right: 1vw;
+        margin-left: 5vw;
+        margin-bottom: -2vw;
+    }
+
+    
 }
 
 @media (min-width: 1000px) {
     .thumbnails-list {
         padding-right: 10vw;
     }
-.details-title{
-   min-width: 22vw;
-   max-width: 22vw;
-   left: 6vw;
-}
-.details-image{
-    min-width: 34vw;
-    max-width: 34vw;
-}
+
+    .details-title {
+        min-width: 22vw;
+        max-width: 22vw;
+        left: 6vw;
+    }
+
+    .details-image {
+        min-width: 34vw;
+        max-width: 34vw;
+    }
+
     .logo {
 
         background-size: contain;
