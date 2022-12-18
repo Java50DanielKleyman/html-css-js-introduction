@@ -27,10 +27,10 @@ function setDetails(anchor) {
     detailsTitle.innerHTML = anchor.getAttribute("data-details-title");
     detailFont.style.color = "blue";
     detailsAudio.src = anchor.getAttribute("data-detailed-audio");
-    detailsAudio.currentTime = 25;
+    detailsAudio.currentTime = 0;
     detailsAudio.play();
     setInterval(function(){
-        if(detailsAudio.currentTime>36)
+        if(detailsAudio.currentTime>11)
         detailsAudio.pause()
     })
     
@@ -42,3 +42,5 @@ for (let i = 0; i < anchorElements.length; i++) {
     })
 }
 hideButtonElement.addEventListener("click", hideDetails);
+hideButtonElement.addEventListener("click",function(){
+    detailsAudio.pause()})
