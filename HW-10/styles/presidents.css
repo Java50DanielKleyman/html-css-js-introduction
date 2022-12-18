@@ -76,7 +76,7 @@ h2 {
     align-items: center;
     margin-top: 5vh;
     margin-bottom: 2vh;
-
+    transition: 5s cubic-bezier(0.8, 2, 0.2, 1);
 }
 
 .hidden .details-container {
@@ -135,7 +135,9 @@ h2 {
 }
 
 .thumbnails-item:hover {
-    transform: rotate(180deg);
+    transform: rotate(360deg);
+    transition: 3s;
+    transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     /*scale(1.1);*/
 }
 
@@ -164,6 +166,10 @@ h2 {
 
 }
 
+.is-point {
+    transform: scale(0.001);
+    transition: 0s;
+}
 @media (min-width: 560px) {
     .main-class {
         flex-direction: row;
@@ -237,7 +243,7 @@ h2 {
         margin-bottom: -2vw;
     }
 
-    
+
 }
 
 @media (min-width: 1000px) {
