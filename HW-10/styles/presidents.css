@@ -94,8 +94,8 @@ h2 {
 }
 
 .details-image {
-    /*width: var(--details-image-width);*/
-    height: var(--details-image-height);
+    width: var(--details-image-width);
+  height: var(--details-image-height);
     border-radius: 25%;
 
 }
@@ -212,7 +212,7 @@ h2 {
     }
 
     .main-class {
-        max-height: 70vh;
+        max-height: 80vh;
     }
 
     .details-image {
@@ -258,8 +258,8 @@ h2 {
     }
 
     .details-image {
-        min-width: 34vw;
-        max-width: 34vw;
+        /*min-width: 34vw;
+        max-width: 34vw;*/
     }
 
     .logo {
