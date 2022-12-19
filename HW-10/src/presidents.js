@@ -3,7 +3,7 @@ const detailsTitle = document.querySelector(".details-title");
 const detailFont = document.querySelector(".details-title");
 const detailsContainer = document.querySelector(".details-container");
 const detailsAudio = document.getElementById("audio");
-const detailsVideo = document.getElementById("video");
+
 const anchorElements = document.querySelectorAll(".thumbnails-anchor");
 const mainElement = document.querySelector("main");
 const hideButtonElement = document.getElementById("hide-button");
@@ -28,8 +28,8 @@ function setDetails(anchor) {
     detailsTitle.innerHTML = anchor.getAttribute("data-details-title");
     detailFont.style.color = "blue";
     detailsAudio.src = anchor.getAttribute("data-detailed-audio");
-    detailsVideo.src = anchor.getAttribute("data-detailed-video");
-    detailsVideo.play();
+    
+    
     detailsAudio.currentTime = 0;
     detailsAudio.play();
     setInterval(function(){
