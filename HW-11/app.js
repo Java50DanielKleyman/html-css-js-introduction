@@ -2,42 +2,43 @@
 console.log(printAnanas());
 console.log(getDiditsSum(-280.123));
 console.log(computeExpression("9 + 100 / 2"));
-console.log(reverse(-280.123));
+console.log(reverse(-892.458));
 
 function printAnanas() {
-    let c = 'A' + 0 / 0 + 'A' + 'S';
-    let d = c.toLowerCase();
-    return d;
+    let c = 'A' + +'jwhkw1' + 'A' + 'S';
+    с = c.toLowerCase();
+    return с;
 }
 function getDiditsSum(number) {
     if (number < 0) {
-        number = - number;
+        number = Math.abs(number);
     }
     number = Math.trunc(number);
     let sum = 0;
-    while (number != 0) {
-        sum = sum + number % 10;
-        number = number / 10;
-        number = Math.trunc(number);
+    while (number) {
+        sum += number % 10;
+        number = Math.trunc(number / 10);
     }
     return sum;
 }
 function computeExpression(expressionStr) {
-    return Function(`'use strict'; return (${expressionStr})`)()
+    let res = eval(expressionStr);
+    return res;
 }
 
 function reverse(number) {
+    if(number==0)
+    return '0';
     number = Math.trunc(number);
     let numberReverse = '';
     if (number < 0) {
-        number = - number;
+        number = Math.abs(number);
         numberReverse = '-';
     }
-    while (number != 0) {
+    while (number) {
         let a = number % 10;
-        numberReverse = numberReverse + a.toString();;
-        number = number / 10;
-        number = Math.trunc(number);
+        numberReverse += a;
+        number = Math.trunc(number / 10);
     }
     return numberReverse;
 }
