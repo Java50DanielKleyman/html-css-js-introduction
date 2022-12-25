@@ -30,7 +30,11 @@ function myParseInt(str, base) {
     }
     if (base == 36) {
         for (let i = 0; i < str.length; i++) {
-            res = res * base + getCode(str[i]);
+            if (str[i] > '0' && str[i] <= 'z') {
+                res = res * base + getCode(str[i]);
+
+            }
+            else return res = minus == '-' ? -res : res;
         }
     }
     res = minus == '-' ? -res : res;
@@ -43,11 +47,11 @@ function getCode(symbol) {
     return res;
 }
 let str = "-ffz";
-let str1 = "js.5";
-let str2 = "Java";
+let str1 = "zs.5";
+let str2 = "-Java";
 let str3 = "-123m";
-console.log(parseInt(str3));
-console.log(myParseInt(str3));
+console.log(parseInt(str2,36));
+console.log(myParseInt(str2,36));
 
 function myToString(number, base) {
     let minus = number < 0 ? '-' : '';
