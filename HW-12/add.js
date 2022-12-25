@@ -8,13 +8,30 @@ function myParseInt(str, base) {
     let res = 0;
     if (str[0] > '9' && base == 10)
         return res = NaN;
-    
+    if (str[0] > 'f' && base > 10 && base < 36)
+        return res = NaN;
+    if (base == 10) {
         for (let i = 0; i < str.length; i++) {
-        if (str[i] > '0' && str[i] <= '9') {
-            res = res * base + getCode(str[i]);
+            if (str[i] > '0' && str[i] <= '9') {
+                res = res * base + getCode(str[i]);
 
+            }
+            else return res = minus == '-' ? -res : res;
         }
-        else return res = minus == '-' ? -res : res;
+    }
+    if (base > 10 && base < 36) {
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] > '0' && str[i] <= 'f') {
+                res = res * base + getCode(str[i]);
+
+            }
+            else return res = minus == '-' ? -res : res;
+        }
+    }
+    if (base == 36) {
+        for (let i = 0; i < str.length; i++) {
+            res = res * base + getCode(str[i]);
+        }
     }
     res = minus == '-' ? -res : res;
     return res;
@@ -25,17 +42,13 @@ function getCode(symbol) {
     const res = symbol <= '9' ? +symbol : symbol.charCodeAt() - codeA + 10;
     return res;
 }
-
-let str = "123.35";
+let str = "-ffz";
 let str1 = "js.5";
-console.log(parseInt(str1,36));
-console.log(myParseInt(str1,36));
-/*let str1 = "ff";
-let str2 = "123";
-let str22 = "Java";
-let str3 = "123mb";
-let str4 = "123.5";
-*/
+let str2 = "Java";
+let str3 = "-123m";
+console.log(parseInt(str3));
+console.log(myParseInt(str3));
+
 function myToString(number, base) {
     let minus = number < 0 ? '-' : '';
     number = Math.abs(number);
