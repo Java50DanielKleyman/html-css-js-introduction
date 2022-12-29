@@ -25,13 +25,12 @@ function transMatrix(matrix) {
     let transMatrix = [];
     let columns = matrix.length;
     let rows = matrix[0].length;
-        for (let i = 0; i < rows; i++) {
+    for (let i = 0; i < rows; i++) {
         transMatrix.push([])
         for (let j = 0; j < columns; j++) {
-            let transitArray = matrix[j];
-            transMatrix[i].push(transitArray[i])
+            transMatrix[i].push(matrix[j][i])
         }
-            }
+    }
     return transMatrix;
 }
 
