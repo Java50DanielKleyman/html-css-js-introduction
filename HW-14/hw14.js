@@ -1,8 +1,9 @@
 function coloringString(str1, str2) {
+if(str1.length !=str2.length)
+ return console.log("error")
     const array1 = Array.from(str1);
     const array2 = Array.from(str2);
-    let arrayResult = [];
-    arrayResult = array2.map(function (number, index) {
+    const arrayResult = array2.map(function (number, index) {
         let color = '';
         const arrayTransit = array1.filter(function (number) {
             if (number == array2[index])
@@ -17,7 +18,7 @@ function coloringString(str1, str2) {
     })
     return arrayResult;
 }
-console.log(coloringString('pappy', 'apple'));
+console.log(coloringString('pappy', 'applew'));
 
 function getNumbersWithDigitsAmount(digitsAmount, array) {
     const resultArray = array.filter(function (number) {
