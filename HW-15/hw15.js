@@ -40,14 +40,32 @@ function getMax(array) {
 console.log(`max from array [-1,15,-25,100,12] = ${getMax([-1, 15, -25, -100, 12])}`)
 
 function getAverage(array) {
-    return array.reduce(function (res, cur) {
-        return res + cur;
-    }) / array.length;
+    return array.reduce(function (res, cur, index) {
+        res = res + cur;
+        if (index === array.length - 1)
+            return res / array.length
+        else return res;
+    });
 
 }
 console.log(`average from array [2,4,3] = ${getAverage([2, 4, 3])}`)
 
 function getMinMaxAvg(array) {
-    return array = [[getMin(array)], [getMax(array)], [getAverage(array)]]
+    let resultArray = [];
+    let minimum = array[0];
+    let maximum = array[0];
+    let sum = 0;
+    resultArray = array.reduce(function (res, cur, index) {
+        sum = sum + cur
+        minimum = minimum > cur ? cur : minimum
+        maximum = maximum < cur ? cur : maximum;
+        let average;
+        if (index === array.length - 1) {
+            average = sum / array.length
+            res.push(minimum, maximum, average)
+        }
+        return res;
+    }, [])
+    return resultArray;
 }
-console.log(`MinMaxAvg from array [2,4,3] = ${getMinMaxAvg([2, 4, 3])}`)
+console.log(`MinMaxAvg from array [2,4,3] = ${getMinMaxAvg([10, -5, 3])}`)
