@@ -51,21 +51,17 @@ function getAverage(array) {
 console.log(`average from array [2,4,3] = ${getAverage([2, 4, 3])}`)
 
 function getMinMaxAvg(array) {
-    let resultArray = [];
-    let minimum = array[0];
-    let maximum = array[0];
+    let minimum = maximum = array[0];
     let sum = 0;
-    resultArray = array.reduce(function (res, cur, index) {
-        sum = sum + cur
-        minimum = minimum > cur ? cur : minimum
+    return array.reduce(function (res, cur, index) {
+        sum += cur;
+        minimum = minimum > cur ? cur : minimum;
         maximum = maximum < cur ? cur : maximum;
-        let average;
         if (index === array.length - 1) {
-            average = sum / array.length
-            res.push(minimum, maximum, average)
+            res.push(minimum, maximum, sum / array.length)
         }
         return res;
-    }, [])
-    return resultArray;
+    }, []);
+   
 }
 console.log(`MinMaxAvg from array [2,4,3] = ${getMinMaxAvg([10, -5, 3])}`)
