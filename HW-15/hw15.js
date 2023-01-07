@@ -62,6 +62,5 @@ function getMinMaxAvg(array) {
         }
         return res;
     }, []);
-   
-}
-console.log(`MinMaxAvg from array [2,4,3] = ${getMinMaxAvg([10, -5, 3])}`)
+   }
+console.log(`MinMaxAvg from array [10, 5, 3] = ${getMinMaxAvg([10, 5, 3])}`)
