@@ -17,7 +17,7 @@ function evenAscOddDesc(array) {
     let arrayResult = evenOddSort(array).sort(function (a, b) {
         if (a % 2 == 0 && b % 2 == 0)
             return a - b;
-        else if (a % 2 != 0 && b % 2 == 0)
+        else if (a % 2 != b % 2)
             return 0;
         return b - a;
     });
@@ -62,5 +62,5 @@ function getMinMaxAvg(array) {
         }
         return res;
     }, []);
-   }
+}
 console.log(`MinMaxAvg from array [10, 5, 3] = ${getMinMaxAvg([10, 5, 3])}`)
