@@ -46,20 +46,24 @@ function onChange() {
         };
         trials--;
         if (trials === 0) {
-            alert('You loose the game, press play-again')
-            coloringWord(word);
+            alert('You loose the game, press play-again')            
             playAgainElement.style.display = "";
             gameResultElement.innerHTML = "LOOSER!!!"
+            rightAnswer (word);
         };
         trialsElement.innerHTML = `remained trials ${trials}`;
         if (trialWord.length != word.length) {
-            alert("wrong number of letters");    
+            alert("wrong number of letters");
         } else {
             coloringWord(trialWord);
         }
-
     }
-
+}
+function rightAnswer (word){
+    word.forEach(function (letter, index) {
+        lettersDivs[index].innerHTML = letter;
+        lettersDivs[index].style.color = green;
+    })
 }
 function coloringWord(trialWord) {
     const arWord = Array.from(trialWord);
@@ -77,17 +81,7 @@ function getColor(letter, index) {
 }
 function finishGame(status) {
     flGameOver = true;
-    if (status === win) {
-
-        alert(`You win the game in ${word.length +1 - trials + 1} trials, press play-again`)
-        playAgainElement.style.display = "";
-        gameResultElement.innerHTML = "WINNER!!!"
-    }
-    if (status === loose) {
-        alert('You loose the game, press play-again')
-        playAgainElement.style.display = "";
-        gameResultElement.innerHTML = "LOOSER!!!"
-    }
+    
 }
 
 //TODO
