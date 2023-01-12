@@ -42,35 +42,30 @@ function onChange() {
         const trialWord = guessInputElement.value;
         trials--;
         if (trialWord === word) {
-          //  finishGame(win);
+            //  finishGame(win);
+            flGameOver = true;
             alert(`You win the game in ${word.length - trials + 2} trials, press play-again`)
             playAgainElement.style.display = "";
             gameResultElement.innerHTML = "WINNER!!!"
         };
         if (trialWord != word && trials === 0) {
-          //  finishGame(loose);
+            //  finishGame(loose);
+            flGameOver = true;
             alert('You loose the game, press play-again')
             playAgainElement.style.display = "";
             gameResultElement.innerHTML = "LOOSER!!!"
             trialsElement.innerHTML = `remained trials 0`;
-            rightAnswer(word);
+            coloringWord(word);
         };
 
         trialsElement.innerHTML = `remained trials ${trials}`;
-        if (trialWord.length != word.length) {
+        if (trialWord.length != word.length && trials != 0) {
             alert("wrong number of letters");
-        } else {
+        } else if (trials != 0 || trialWord === word) {
             coloringWord(trialWord);
         }
         guessInputElement.value = '';
     }
-}
-function rightAnswer(word) {
-    const wordArray = Array.from(word);
-    wordArray.forEach(function (letter, index) {
-        lettersDivs[index].innerHTML = letter;
-        lettersDivs[index].style.color = green;
-    })
 }
 function coloringWord(trialWord) {
     const arWord = Array.from(trialWord);
@@ -98,7 +93,7 @@ function getColor(letter, index) {
 //         playAgainElement.style.display = "";
 //         gameResultElement.innerHTML = "LOOSER!!!"
 //         trialsElement.innerHTML = `remained trials 0`;
-//         rightAnswer(word);
+//         coloringWord(word);
 // }
 
 // }
