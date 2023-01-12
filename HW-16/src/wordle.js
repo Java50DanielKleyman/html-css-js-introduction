@@ -16,7 +16,7 @@ function startGame() {
     word = getWord();
     fillLettersDivs();
     flGameOver = false;
-    trials = 2//word.length + 1;
+    trials = word.length + 1;
     playAgainElement.style.display = "none";
     gameResultElement.innerHTML = "";
     trialsElement.innerHTML = `remained trials ${trials}`;
