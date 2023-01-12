@@ -50,7 +50,7 @@ function onChange() {
         if (trialWord != word && trials === 0) {
             finishGame(0);
         };
-        if (trialWord.length != word.length && trials != 0) {
+        if (trialWord.length != word.length) {
             alert("wrong number of letters");
         } else if (trials != 0 || trialWord === word) {
             coloringWord(trialWord);
