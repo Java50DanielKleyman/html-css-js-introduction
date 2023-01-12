@@ -40,7 +40,9 @@ function onChange() {
     }
     else {
         const trialWord = guessInputElement.value;
-        trials--;
+        if(trialWord.length === word.length) {
+            trials--;
+        }        
         trialsElement.innerHTML = `remained trials ${trials}`;
         if (trialWord === word) {
             finishGame(1);
@@ -49,7 +51,7 @@ function onChange() {
             finishGame(0);
         };
         if (trialWord.length != word.length && trials != 0) {
-            alert("wrong number of letters");
+            alert("wrong number of letters");            
         } else if (trials != 0 || trialWord === word) {
             coloringWord(trialWord);
         }
