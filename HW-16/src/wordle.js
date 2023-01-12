@@ -44,7 +44,7 @@ function onChange() {
         if (trialWord === word) {
             //  finishGame(win);
             flGameOver = true;
-            alert(`You win the game in ${word.length - trials + 2} trials, press play-again`)
+            alert(`You win the game in ${word.length - trials + 1} trials, press play-again`)
             playAgainElement.style.display = "";
             gameResultElement.innerHTML = "WINNER!!!"
         };
@@ -53,8 +53,7 @@ function onChange() {
             flGameOver = true;
             alert('You loose the game, press play-again')
             playAgainElement.style.display = "";
-            gameResultElement.innerHTML = "LOOSER!!!"
-            trialsElement.innerHTML = `remained trials 0`;
+            gameResultElement.innerHTML = "LOOSER!!!"          
             coloringWord(word);
         };
 
