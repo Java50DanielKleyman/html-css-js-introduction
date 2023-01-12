@@ -40,9 +40,9 @@ function onChange() {
     }
     else {
         const trialWord = guessInputElement.value;
-        if(trialWord.length === word.length) {
+        if (trialWord.length === word.length) {
             trials--;
-        }        
+        }
         trialsElement.innerHTML = `remained trials ${trials}`;
         if (trialWord === word) {
             finishGame(1);
@@ -51,7 +51,7 @@ function onChange() {
             finishGame(0);
         };
         if (trialWord.length != word.length && trials != 0) {
-            alert("wrong number of letters");            
+            alert("wrong number of letters");
         } else if (trials != 0 || trialWord === word) {
             coloringWord(trialWord);
         }
@@ -73,14 +73,13 @@ function getColor(letter, index) {
     return res;
 }
 function finishGame(status) {
+    flGameOver = true;
     if (status === 1) {
-        flGameOver = true;
         // alert(`You win the game in ${word.length - trials + 1} trials, press play-again`)
         trialsElement.innerHTML = `You win the game in ${word.length - trials + 1} trials, press "Play again"`;
         playAgainElement.style.display = "";
         gameResultElement.innerHTML = "WINNER!!!"
-    } else if (status === 0) {
-        flGameOver = true;
+    } else {
         //     alert('You loose the game, press play-again')
         playAgainElement.style.display = "";
         gameResultElement.innerHTML = "LOOSER!!!"
