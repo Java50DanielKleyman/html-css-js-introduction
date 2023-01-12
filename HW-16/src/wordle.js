@@ -76,14 +76,14 @@ function finishGame(status) {
     flGameOver = true;
     if (status === 1) {
         // alert(`You win the game in ${word.length - trials + 1} trials, press play-again`)
-        trialsElement.innerHTML = `You win the game in ${word.length - trials + 1} trials, press "Play again"`;
+        trialsElement.innerHTML = `Congratulations!!! You have guessed the word using ${word.length +1 - trials} trials`;
         playAgainElement.style.display = "";
         gameResultElement.innerHTML = "WINNER!!!"
     } else {
         //     alert('You loose the game, press play-again')
         playAgainElement.style.display = "";
         gameResultElement.innerHTML = "LOOSER!!!"
-        trialsElement.innerHTML = `You loose the game`;
+        trialsElement.innerHTML = `Sorry, but the number of trials has ended up`;
         coloringWord(word);
     }
 }
