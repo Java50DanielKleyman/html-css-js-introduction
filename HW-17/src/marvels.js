@@ -9,8 +9,8 @@ const playAgain = document.getElementById("play-again");
 const letterElement = document.querySelector(".letter");
 let wordLettersElement;
 //global variables
-//const questionsWords = [["Capital of Australia", "canberra"], ["Jewish holiday", "purim"], ["Inventor of radio", "marconi"], ["The world's largest island", "greenland"], ["Austrian composer", "strauss"]]// чтоб не шли подряд и не повторялись
-const questionsWords = [["Capital of Australia", "canberra"], ["Jewish holiday", "purim"]]
+const questionsWords = [["Capital of Australia", "canberra"], ["Jewish holiday", "purim"], ["Inventor of radio", "marconi"], ["The world's largest island", "greenland"], ["Austrian composer", "strauss"]]// чтоб не шли подряд и не повторялись
+//const questionsWords = [["Capital of Australia", "canberra"], ["Jewish holiday", "purim"]]
 let currentIndex = 0; // when startGame - index++, сравнить с длиной и если равно длине - то индекс равен нулю
 let initialLettersNumber;
 let remainedLetters;
@@ -41,6 +41,17 @@ function getWordDivs() {
     return stringResult;
 }
 function checkWord() {
+    if (wordInputElement.value.length != word.length) {
+        alert("wrong number of letters!!!")
+        wordInputElement.value = '';
+    }
+    if (wordInputElement.value.length === word.length) {
+        wordInputElement.readOnly = true;
+        finishGame()
+        Array.from(word).map(function (item, index) {
+            document.getElementById(index).style = "background-color: white";
+        })
+    }
     // TODO
 }
 function processLetter() {
@@ -56,19 +67,14 @@ function processLetter() {
     if (remainedLetters === 0) {
         wordInputElement.readOnly = false;
         letterInputElement.readOnly = true;
+
     }
     // TODO
 }
 function takeChance() {
     wordInputElement.readOnly = false;
     letterInputElement.readOnly = true;
-    if (wordInputElement.value.length != word.length) {
-        //alert("wrong number of letters!!!")
-        wordInputElement.value = '';
-    }
-    if (wordInputElement.value.length === word.length) {
-        finishGame()
-    }
+
 
     // TODO
 }
@@ -77,12 +83,12 @@ function finishGame() {
     if (wordInputElement.value === word) {
         resultMessage.innerHTML = "You WIN!!!"
         playAgain.style.display = 'block';
-        wordElement.style = "background-color: white";
     }
     else if ((wordInputElement.value != word)) {
         resultMessage.innerHTML = "You LOOSE!!!"
         playAgain.style.display = 'block';
     }
+
 }
 //actions
 startGame();
