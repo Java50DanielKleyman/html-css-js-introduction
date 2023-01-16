@@ -19,6 +19,7 @@ let word;
 
 //functions:
 function startGame() {
+    document.getElementById("my-image").src="";
     wordInputElement.value = '';
     wordInputElement.readOnly = true;// на  takechance  и в конце processletter
     letterInputElement.readOnly = false;
@@ -51,7 +52,8 @@ function checkWord() {
 
         wordInputElement.readOnly = true;
         finishGame()
-        //letterElement.style = "background-color: white";
+        //wordElement.style = "background-color: white";
+      //  document.div.style.backgroundColor = 'white';
         Array.from(word).map(function (item, index) {
         document.getElementById(index).style = "background-color: white";
         })
@@ -82,10 +84,12 @@ function finishGame() {
     if (wordInputElement.value === word) {
         resultMessage.innerHTML = "You WIN!!!"
         playAgain.style.display = 'block';
+        document.getElementById("my-image").src="/images/1.jpg";
     }
     else if ((wordInputElement.value != word)) {
         resultMessage.innerHTML = "You LOOSE!!!"
         playAgain.style.display = 'block';
+        document.getElementById("my-image").src="/images/2.jpg";
     }
 }
 //actions
