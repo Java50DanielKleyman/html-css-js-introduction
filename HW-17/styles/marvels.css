@@ -11,6 +11,9 @@ body{
 }
 .letter {   
     margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     /*  
    background-color: ghostwhite;
     */
@@ -20,7 +23,7 @@ body{
     width: 4vw;
     height: 4vw;
     border: 1px solid black;
-    text-align: center;
+    
     font-size: xxx-large;
     overflow:hidden;
     /*height: 100%;*/
