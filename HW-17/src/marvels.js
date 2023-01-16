@@ -51,10 +51,11 @@ function checkWord() {
 
         wordInputElement.readOnly = true;
         finishGame()
+        //letterElement.style = "background-color: white";
         Array.from(word).map(function (item, index) {
-            document.getElementById(index).style = "background-color: white";
+        document.getElementById(index).style = "background-color: white";
         })
-    }    
+    }
 }
 function processLetter() {
     let letter = letterInputElement.value;
@@ -69,6 +70,7 @@ function processLetter() {
     if (remainedLetters === 0) {
         wordInputElement.readOnly = false;
         letterInputElement.readOnly = true;
+        guessButton.disabled = true;
     }
 }
 function takeChance() {
