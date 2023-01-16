@@ -19,10 +19,9 @@ let word;
 
 //functions:
 function startGame() {
-
     wordInputElement.value = '';
     wordInputElement.readOnly = true;// на  takechance  и в конце processletter
-   letterInputElement.readOnly = false;
+    letterInputElement.readOnly = false;
     questionElement.innerHTML = questionsWords[currentIndex][0];// нулевой элемент i-го массива
     playAgain.style.display = 'none';
     guessButton.disabled = false;
@@ -46,17 +45,16 @@ function checkWord() {
     guessButton.disabled = true;
     if (wordInputElement.value.length != word.length) {
         alert("wrong number of letters!!!")
-        wordInputElement.value = '';        
+        wordInputElement.value = '';
     }
     if (wordInputElement.value.length === word.length) {
-        
+
         wordInputElement.readOnly = true;
         finishGame()
         Array.from(word).map(function (item, index) {
             document.getElementById(index).style = "background-color: white";
         })
-    }
-    // TODO
+    }    
 }
 function processLetter() {
     let letter = letterInputElement.value;
@@ -71,19 +69,14 @@ function processLetter() {
     if (remainedLetters === 0) {
         wordInputElement.readOnly = false;
         letterInputElement.readOnly = true;
-
     }
-    // TODO
 }
 function takeChance() {
     wordInputElement.readOnly = false;
     letterInputElement.readOnly = true;
-
-
-    // TODO
+    guessButton.disabled = true;
 }
 function finishGame() {
-
     if (wordInputElement.value === word) {
         resultMessage.innerHTML = "You WIN!!!"
         playAgain.style.display = 'block';
@@ -92,7 +85,6 @@ function finishGame() {
         resultMessage.innerHTML = "You LOOSE!!!"
         playAgain.style.display = 'block';
     }
-
 }
 //actions
 startGame();
