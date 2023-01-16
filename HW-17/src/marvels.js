@@ -7,6 +7,7 @@ const wordElement = document.querySelector(".word");
 const resultMessage = document.getElementById("result-message");
 const playAgain = document.getElementById("play-again");
 const letterElement = document.querySelector(".letter");
+const guessButton = document.getElementById("guess-button")
 let wordLettersElement;
 //global variables
 const questionsWords = [["Capital of Australia", "canberra"], ["Jewish holiday", "purim"], ["Inventor of radio", "marconi"], ["The world's largest island", "greenland"], ["Austrian composer", "strauss"]]// чтоб не шли подряд и не повторялись
@@ -21,9 +22,10 @@ function startGame() {
 
     wordInputElement.value = '';
     wordInputElement.readOnly = true;// на  takechance  и в конце processletter
-    letterInputElement.readOnly = false;
+   letterInputElement.readOnly = false;
     questionElement.innerHTML = questionsWords[currentIndex][0];// нулевой элемент i-го массива
     playAgain.style.display = 'none';
+    guessButton.disabled = false;
     resultMessage.innerHTML = '';
     wordElement.innerHTML = getWordDivs(); // class letter
     initialLettersNumber = word.length;
@@ -41,11 +43,13 @@ function getWordDivs() {
     return stringResult;
 }
 function checkWord() {
+    guessButton.disabled = true;
     if (wordInputElement.value.length != word.length) {
         alert("wrong number of letters!!!")
-        wordInputElement.value = '';
+        wordInputElement.value = '';        
     }
     if (wordInputElement.value.length === word.length) {
+        
         wordInputElement.readOnly = true;
         finishGame()
         Array.from(word).map(function (item, index) {

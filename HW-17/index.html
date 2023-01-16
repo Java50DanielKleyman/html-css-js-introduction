@@ -16,7 +16,7 @@
     <section class="filed">
         <p id="question"></p>
         <input type="text" readonly onchange="checkWord()" id="word-input" placeholder="enter word">
-        <button onclick="takeChance()" id="guess-button">guess</button>
+        <button onclick="takeChance()" disabled id="guess-button">guess</button>
         <p id="letters-remained"></p>
         <input type="text" readonly minlength="1" maxlength="1" onchange="processLetter()" id="letter-input">
        
