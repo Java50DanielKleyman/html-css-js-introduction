@@ -84,12 +84,12 @@ function finishGame() {
     if (wordInputElement.value === word) {
         resultMessage.innerHTML = "You WIN!!!"
         playAgain.style.display = 'block';
-        document.getElementById("my-image").src="../images/3.jpg";
+        document.getElementById("my-image").src="images/3.jpg";
     }
     else if ((wordInputElement.value != word)) {
         resultMessage.innerHTML = "You LOOSE!!!"
         playAgain.style.display = 'block';
-        document.getElementById("my-image").src="../images/4.jpg";
+        document.getElementById("my-image").src="images/4.jpg";
     }
 }
 //actions
