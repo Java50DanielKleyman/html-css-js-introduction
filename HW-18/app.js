@@ -12,23 +12,23 @@ const employees = [
     createEmployee(130, "Victor", 2003, 10000, "Rehovot", "Israel")
 ]
 function getEmployee(employees, id) {
-    return employees.find((employees) => employees.id === id);
+    return employees.find(employees => employees.id === id);
 }
 console.log(getEmployee(employees, 128));
 
 function getEmployeesBySalary(employees, salaryFrom, salaryTo) {
-    return employees.filter((employees) => employees.salary >= salaryFrom 
+    return employees.filter(employees => employees.salary >= salaryFrom 
     && employees.salary <= salaryTo)
 }
 console.log(getEmployeesBySalary(employees, 10000, 12000))
 
 function getEmployeesByCity(employees, city) {
-    return employees.filter((employees) => employees.address.city === city)    
+    return employees.filter(employees => employees.address.city === city)    
 }
 console.log(getEmployeesByCity(employees, "Rehovot"))
 
 function getEmployeeNames(employees) {
-    return employees.map((employees) => employees.name)
+    return employees.map(employees => employees.name)
 }
 console.log(getEmployeeNames(employees));
 
