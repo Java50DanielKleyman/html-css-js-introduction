@@ -28,7 +28,7 @@ function getEmployeesByCity(employees, city) {
 console.log(getEmployeesByCity(employees, "Rehovot"))
 
 function getEmployeeNames(employees) {
-    return employees.map(() => employees.name)
+    return employees.map((employees) => employees.name)
 }
 console.log(getEmployeeNames(employees));
 
