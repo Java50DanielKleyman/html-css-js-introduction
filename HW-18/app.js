@@ -28,7 +28,7 @@ function getEmployeesByCity(employees, city) {
 console.log(getEmployeesByCity(employees, "Rehovot"))
 
 function getEmployeeNames(employees) {
-    return employees.map((employees) => employees.name)
+    return employees.map(() => employees.name)
 }
 console.log(getEmployeeNames(employees));
 
@@ -38,6 +38,6 @@ function sortEmployeesByAge(employees) {
 console.log(sortEmployeesByAge(employees))
 
 function computeSalaryBudget(employees) {
-    return employees.map((employees) => employees.salary).reduce((a, b) => a + b)
+    return employees.reduce((a, b) => a + b.salary, 0)
 }
 console.log(computeSalaryBudget(employees));
