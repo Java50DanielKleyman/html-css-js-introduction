@@ -64,10 +64,10 @@ function cutOverview(index) {
     if (letters < 50) {
         return text;
     };
-    while (alphabetArray.indexOf(textArray[i+1]) > -1){
+    while (alphabetArray.indexOf(textArray[i]) > -1){
         i++;
     }
-    text = textArray.slice(0, i+1).join('')+"..."    
+    text = textArray.slice(0, i).join('')+"..."    
     return text;
 }
 
