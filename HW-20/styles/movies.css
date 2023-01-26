@@ -46,6 +46,7 @@ h2 {
     justify-content: center;
     flex-grow: 1;
 }
+
 .main-class.hidden {
     /* --thumbnails-image-width: 30vw;
     --thumbnails-image-height: 20vw;
@@ -128,7 +129,8 @@ max-height: 60vh;
     text-align: center;
     background-color: antiquewhite;
     color: black;
-    height: var(--thumbnails-title-height);
+    /*height: var(--thumbnails-title-height);*/
+    width: var(--thumbnails-image-width);
     
 }
 .is-point {

@@ -12,7 +12,7 @@ const httpPrefix = "https://image.tmdb.org/t/p/w500";
 const data = JSON.parse(jsonData);
 mainElement.innerHTML += getAnchors();
 function getAnchors() {
-    return `<ul class = "ul-class">${getListItems()}</ul>`
+    return `<ul class = "thumbnails-list">${getListItems()}</ul>`
 }
 function getListItems() {
     const itemsArray = data.results.map(movie =>
