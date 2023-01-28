@@ -38,13 +38,12 @@ class Company {
         return Object.values(this.#employees).filter(empl => currentYear - empl.birthYear === age)
     }
     getEmployeesBySalaries(SalaryFrom, SalaryTo) {
-        let res = Object.values(this.#employees).filter(empl => {
+        return Object.values(this.#employees).filter(empl => {
             if (SalaryFrom < 0 && SalaryTo < 0) return empl.salary;
             else if (SalaryFrom < 0) return empl.salary <= SalaryTo;
             else if (SalaryTo <= 0) return empl.salary >= SalaryFrom;
             return empl.salary >= SalaryFrom && empl.salary <= SalaryTo
-        })
-        return res;
+        })       
     }
 }
 const firm = new Company()
