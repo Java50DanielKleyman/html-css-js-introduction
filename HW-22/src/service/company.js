@@ -1,4 +1,5 @@
 import { employeeConfig } from "../config/employee-config.js";
+import { getRandomNumber } from "../utils/random.js";
 
 export function createEmployee(name, birthYear, salary, city, country) {
     return { name, birthYear, salary, address: { city, country } }
@@ -9,7 +10,7 @@ export class Company {
         this.#employees = {}
     }
     addEmployee(empl) {
-        empl.id = employeeConfig.minId + Math.trunc(Math.random() * (employeeConfig.maxId - employeeConfig.minId))
+        empl.id = getRandomNumber(employeeConfig.minId, employeeConfig.maxId);
         let res = 'error: there is such employee in the company';
         if (this.#employees[empl.id]) {
             return res;
