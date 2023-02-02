@@ -53,19 +53,23 @@ export class EmployeeForm {
         if(!EmplName.value.match(letters)){
             alert("WRONG NAME!!! USE ONLY LETTERS!")
             EmplName.value = ''
+            return false;
         }
         if (birthYear.value > employeeConfig.maxYear ||
             birthYear.value < employeeConfig.minYear) {
             alert(`BIRTHYEAR must be greater then ${employeeConfig.minYear} nis 
             and less then ${employeeConfig.maxYear} nis`)
             birthYear.value = '';
+            return false;
         }
         if (salary.value > employeeConfig.maxSalary ||
             salary.value < employeeConfig.minSalary) {
             alert(`Salary must be greater then ${employeeConfig.minSalary} 
             and less then ${employeeConfig.maxSalary}`)
             salary.value = '';
+            return false;
         }
+        return true;
     }
     setCountries() {
         this.#countriesElement.innerHTML = Object.keys(employeeConfig.countries)
@@ -77,14 +81,14 @@ export class EmployeeForm {
     }
     addFormHandler(handlerFun) {
         this.#formElement.addEventListener('submit', (event) => {
-            event.preventDefault(); //canceling default handler of "submit"
-            this.checkInput();
-            const employeeData = Array.from(this.#inputElements)
+            event.preventDefault(); //canceling default handler of "submit"                      
+            if(this.checkInput()){
+                const employeeData = Array.from(this.#inputElements)
                 .reduce((res, inputElement) => {
                     res[inputElement.name] = inputElement.value;
                     return res;
                 }, {});
-            handlerFun(employeeData);            
+            handlerFun(employeeData); }           
         })
     }
 }
