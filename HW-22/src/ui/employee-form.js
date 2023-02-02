@@ -47,9 +47,9 @@ export class EmployeeForm {
     }
     checkInput() {
         const letters = /^[A-Za-z]+$/;
-        let EmplName = document.getElementById("employeeName");
-        let birthYear = document.getElementById("birthYear");
-        let salary = document.getElementById("salary");
+        const EmplName = document.getElementById("employeeName");
+        const birthYear = document.getElementById("birthYear");
+        const salary = document.getElementById("salary");
         if(!EmplName.value.match(letters)){
             alert("WRONG NAME!!! USE ONLY LETTERS!")
             EmplName.value = ''
