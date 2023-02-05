@@ -2,10 +2,7 @@ import { Company, createEmployee } from "./service/company.js";
 import { EmployeeForm } from "./ui/employee-form.js";
 import { Table } from "./ui/table.js";
 import { Tabs } from "./ui/tabs.js";
-//const allSectionElements = document.querySelector(".section-class")
-//allSectionElements.style.display = "none";
-document.getElementById("form-section").style.display = "none";
-document.getElementById("table-section").style.display = "none";
+
 const schema = [
     {columnName: 'Employee ID', fieldName: 'id'},
     {columnName: 'Name', fieldName: 'name'},
