@@ -17,10 +17,10 @@ export class Tabs {
             document.getElementById(buttonId).addEventListener("click", () => {
                 for (let i = 0; i < sectionElements.length; i++) {
                     sectionElements[i].style.display = "none";
-                    buttonElements[i].style.backgroundColor = "cornflowerblue";
+                    buttonElements[i].style.backgroundColor = "grey";
                 }
                 document.querySelector(".div-class").style.marginTop = "5vh"
-                document.getElementById(buttonId).style.backgroundColor = "grey";
+                document.getElementById(buttonId).style.backgroundColor = "cornflowerblue";
                 document.getElementById(sectionId).style.display = "block";
             })
         })
