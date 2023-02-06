@@ -10,20 +10,20 @@ export class Tabs {
         const buttonElements = document.getElementsByClassName("button");
         this.#buttonsArr.map(obj => parentElement.innerHTML += `<button type="submit" class="button"
         id="${obj.buttonId}">${obj.buttonName}</button>`).join('')
-        
-        for (let i = 0; i < this.#buttonsArr.length; i++) {
-            let buttonId = `${this.#buttonsArr[i].buttonId}`
-            let sectionId = `${this.#buttonsArr[i].sectionId}`
-            document.getElementById(buttonId).addEventListener("click", function () {
+
+        this.#buttonsArr.forEach((odj) => {
+            let buttonId = `${odj.buttonId}`
+            let sectionId = `${odj.sectionId}`
+            document.getElementById(buttonId).addEventListener("click", () => {
                 for (let i = 0; i < sectionElements.length; i++) {
                     sectionElements[i].style.display = "none";
                     buttonElements[i].style.backgroundColor = "cornflowerblue";
-                }   
-                document.querySelector(".div-class").style.marginTop = "5vh"             
+                }
+                document.querySelector(".div-class").style.marginTop = "5vh"
                 document.getElementById(buttonId).style.backgroundColor = "grey";
-                document.getElementById(sectionId).style.display = "block";                
+                document.getElementById(sectionId).style.display = "block";
             })
-        }
+        })
     }
 }
 
