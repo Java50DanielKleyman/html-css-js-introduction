@@ -18,7 +18,8 @@ export class Tabs {
                 for (let i = 0; i < sectionElements.length; i++) {
                     sectionElements[i].style.display = "none";
                     buttonElements[i].style.backgroundColor = "cornflowerblue";
-                }                
+                }   
+                document.querySelector(".div-class").style.marginTop = "5vh"             
                 document.getElementById(buttonId).style.backgroundColor = "grey";
                 document.getElementById(sectionId).style.display = "block";                
             })
