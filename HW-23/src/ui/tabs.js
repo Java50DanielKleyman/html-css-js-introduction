@@ -16,12 +16,15 @@ export class Tabs {
             let sectionId = `${odj.sectionId}`
             document.getElementById(buttonId).addEventListener("click", () => {
                 for (let i = 0; i < sectionElements.length; i++) {
-                    sectionElements[i].style.display = "none";
-                    buttonElements[i].style.backgroundColor = "grey";
-                }
-                document.querySelector(".div-class").style.marginTop = "5vh"
-                document.getElementById(buttonId).style.backgroundColor = "cornflowerblue";
-                document.getElementById(sectionId).style.display = "block";
+                    sectionElements[i].classList.remove("active-section-class");
+                    sectionElements[i].classList.add("hidden-section-class");
+                    buttonElements[i].classList.remove("active-button");
+                    buttonElements[i].classList.add("inactive-button");
+                }                
+                document.getElementById(buttonId).classList.remove("inactive-button");
+                document.getElementById(buttonId).classList.add("active-button");
+                document.getElementById(sectionId).classList.remove("hidden-section-class");
+                document.getElementById(sectionId).classList.add("active-section-class");
             })
         })
     }
