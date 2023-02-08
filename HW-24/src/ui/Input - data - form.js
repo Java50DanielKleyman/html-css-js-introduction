@@ -4,7 +4,8 @@ export class DataForm {
     #videoElement;
     #videos;
     #parentVideoElement;
-    
+
+
 
     constructor(idParentForm, idParentVideo, videos) {
         this.#videos = videos;
@@ -19,7 +20,7 @@ export class DataForm {
             </div>
             <div class="form-select-group">
                 <label>Select video</label>
-                <select name="video" id="video" class="form-select">
+                <select name="video" id="select-video" class="form-select">
                     <option value="uuuu"></option>                    
                 </select>
             <div class="form-buttons">
@@ -32,19 +33,18 @@ export class DataForm {
         if (!this.#parentVideoElement) {
             throw `wrong parent video id ${idParentVideo}`;
         }
-        this.#parentVideoElement = `<video id="video" src="...."><video>`
         this.#formElement = document.getElementById("video-form");
-        this.#videoElement = document.getElementById("video");
-        this.#inputElements  = document.querySelectorAll("#video-form [name]");
+        this.#videoElement = document.getElementById("select-video");
+        this.#inputElements = document.querySelectorAll("#video-form [name]");
         this.setVideosSelect();
         this.setVideosElements();
     }
-    setVideosSelect(){
-        this.#videoElement.innerHTML = this.#videos.videoLinks.map((video, index) => 
-        `<option value="${video}">video ${index+1}</option>`)        
+    setVideosSelect() {
+        this.#videoElement.innerHTML = this.#videos.videoLinks.map((video, index) =>
+            `<option value="${video}">video ${index + 1}</option>`)
     }
-    setVideosElements(){
-        this.#parentVideoElement.innerHTML =  this.#videos.videoLinks.map((video, index) => 
-        `<video id="video-${index+1}" src="${video}"><video>`)   
+    setVideosElements() {
+        this.#parentVideoElement.innerHTML = this.#videos.videoLinks.map((video, index) =>
+            `<video id="video-${index + 1}" src="${video}"></video>`)
     }
 }
