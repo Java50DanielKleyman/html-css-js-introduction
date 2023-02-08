@@ -13,8 +13,11 @@ export class EmployeeForm {
         parentFormElement.innerHTML = `
         <form id="employee-form">
             <input required name="name" placeholder="enter employee name" class="form-input">
+            <div class="two-inputs">
             <input required name="birthYear" type="number" placeholder="enter birthYear" class="form-input">
             <input required name="salary" type="number" placeholder="enter salary" class="form-input">
+            </div>
+            
             <div class="form-select-group">
                 <label>Select Country</label>
                 <select name="country" id="countries" class="form-select">
@@ -43,6 +46,11 @@ export class EmployeeForm {
         this.setCountries();
         this.setCities();
         this.#countriesElement.addEventListener("change", () => this.setCities())
+        this.#formElement.addEventListener('reset', (event) => {
+            event.preventDefault();
+            this.#formElement.reset();
+            this.setCities();
+        })
     }
     setCountries() {
         this.#countriesElement.innerHTML = Object.keys(employeeConfig.countries)
@@ -65,6 +73,7 @@ export class EmployeeForm {
     alert(message);
    } else {
     this.#formElement.reset();
+    this.setCities();
    }
 })
     }
