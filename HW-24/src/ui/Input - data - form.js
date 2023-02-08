@@ -1,19 +1,17 @@
-export class DataForm {
-   // #inputPlayingTime;
-  //  #inputVideo;
+
+export class DataForm {  
     #formElement;
     #videoElement;
     #videos;
     #parentVideoElement;
-  //  #videoSelectElement;
-   // #inputElements
-
+    #timeValue;
+    #videoValue;
+  //  submitResult;
+  
     constructor(idParentForm, idParentVideo, videos) {
-        this.#videos = videos;
-        //this.#inputElements = document.querySelectorAll("#video-form [name]");
-     //   this.#inputPlayingTime = document.getElementsByName("playingTime");      
-        this.#formElement = document.querySelector("form")
-    //    this.#videoSelectElement = document.getElementById("select-video");
+        
+        this.#videos = videos;            
+        this.#formElement = document.querySelector("form")   
         const parentFormElement = document.getElementById(idParentForm);
         if (!parentFormElement) {
             throw `wrong parent form id ${idParentForm}`;
@@ -35,13 +33,15 @@ export class DataForm {
         </form>
         `
         this.#parentVideoElement = document.getElementById(idParentVideo);
+        this.#timeValue= document.getElementById("playingTime");
+        this.#videoValue =document.getElementById("select-video");
         if (!this.#parentVideoElement) {
             throw `wrong parent video id ${idParentVideo}`;
         }
         this.#formElement = document.getElementById("video-form");
         this.#videoElement = document.getElementById("select-video");
         this.setVideosSelect();
-        this.setVideosElements();
+     //   this.setVideosElements();
         // this.#formElement.addEventListener('reset', (event) => {
         //   //  event.preventDefault();
         //     this.#formElement.reset();
@@ -54,15 +54,15 @@ export class DataForm {
         this.#videoElement.innerHTML = this.#videos.videoLinks.map((video, index) =>
             `<option value="${video}">video-${index + 1}</option>`)
     }
-    setVideosElements() {
-        this.#parentVideoElement.innerHTML = this.#videos.videoLinks.map((video, index) =>
-            `<video id="video-${index + 1}" src="${video}"></video>`)
-    }
-    addHandler() {
-        this.#formElement.addEventListener('submit', (event) => {
-            let timeValue = document.getElementById("playingTime").value;
-            let videoValue = document.getElementById("select-video").value;
-            console.log(videoValue);
+    // setVideosElements() {
+    //     this.#parentVideoElement.innerHTML = this.#videos.videoLinks.map((video, index) =>
+    //         `<video id="video-${index + 1}" src="${video}"></video>`)
+    // }
+    addHandler(handlerFun) {
+        this.#formElement.addEventListener('submit', (event) => {             
+            event.preventDefault(); 
+            const result={"time": this.#timeValue.value, "video": this.#videoValue.value}             
+             handlerFun(result);
         })
     }
 }
