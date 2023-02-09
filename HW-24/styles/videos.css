@@ -1,0 +1,17 @@
+body, html {
+  height: 100%;
+}
+.section-class {
+  display:flex;  
+  justify-content: center;
+  margin-top: 2vh;
+}
+.input{
+  margin-top: 2vh;
+}
+.form-select-group{
+  margin-top: 2vh;
+}
+.form-buttons{
+  margin-top: 2vh;
+}
