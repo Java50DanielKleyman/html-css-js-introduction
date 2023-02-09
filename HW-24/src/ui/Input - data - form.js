@@ -6,10 +6,8 @@ export class DataForm {
     #parentVideoElement;
     #timeValue;
     #videoValue;
-    #inputElement;
-
+   
     constructor(idParentForm, idParentVideo, videos) {
-
         this.#videos = videos;
         this.#formElement = document.querySelector("form")
         const parentFormElement = document.getElementById(idParentForm);
@@ -34,8 +32,7 @@ export class DataForm {
         `
         this.#parentVideoElement = document.getElementById(idParentVideo);
         this.#timeValue = document.getElementById("playingTime");
-        this.#videoValue = document.getElementById("select-video");
-        this.#inputElement = document.getElementById("playingTime")
+        this.#videoValue = document.getElementById("select-video");        
         if (!this.#parentVideoElement) {
             throw `wrong parent video id ${idParentVideo}`;
         }
@@ -51,7 +48,7 @@ export class DataForm {
         this.#formElement.addEventListener('submit', async (event) => {
             event.preventDefault();           
             const result = { "time": this.#timeValue.value, "video": this.#videoValue.value }
-            this.#inputElement.value = '';
+            this.#timeValue.value = '';
            await handlerFun(result);
         })
     }
