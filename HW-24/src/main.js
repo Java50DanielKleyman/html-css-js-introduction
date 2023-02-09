@@ -35,7 +35,8 @@ const player = new VideoPlayer("video-section");
 // }
  function handlerFun(result) {
     player.setUrl(result.video);
-    player.start();
+    document.getElementById("active-video").play()
+    //player.start();
     setTimeout(() => {
         player.stop();
       }, data.time * 1000);

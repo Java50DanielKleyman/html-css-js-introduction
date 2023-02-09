@@ -48,7 +48,7 @@ export class DataForm {
         //     this.#inputElements.forEach(e => e.value='')
         //     this.setVideosSelect();            
         // })
-        this.addHandler();
+        //this.addHandler();
     }
     setVideosSelect() {
         this.#videoElement.innerHTML = this.#videos.videoLinks.map((video, index) =>
