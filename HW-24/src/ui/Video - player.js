@@ -16,11 +16,15 @@ export class VideoPlayer {
 
   start() {
     //this.#videoElement.play();
+    document.getElementById("video-section").classList.remove("hidden-video-section")
+    document.getElementById("video-section").classList.add("active-video-section")
     document.getElementById("active-video").play();
   }
 
   stop() {
-    // this.#videoElement.pause();
+    // this.#videoElement.pause();    
     document.getElementById("active-video").pause();
+    document.getElementById("video-section").classList.remove("active-video-section")
+    document.getElementById("video-section").classList.add("hidden-video-section")
   }
 }

@@ -9,11 +9,11 @@ const video = new DataForm("form-section", "video-section", videos)
 const player = new VideoPlayer("video-section");
 
 async function handlerFun(result) {
-  // const message = checkPlayingTime(playingTime);
-  // if (message) {
-  //   alert(message);
-  //   return;
-  // }
+  const message = checkPlayingTime(result.time);
+  if (message) {
+    alert(message);
+    return;
+  }
   player.setUrl(result.video);
   player.start();
   await sleep(result.time * 1000);
