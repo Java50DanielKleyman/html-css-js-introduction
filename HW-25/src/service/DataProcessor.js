@@ -46,16 +46,16 @@ export class DataProcessor {
         const forecastDays = 16;
         const endingDateMax = new Date(new Date().getTime() + (forecastDays * 24 * 60 * 60 * 1000));
         if (startingDate < currentDate) {
-            res = " Wrong Start Data, less than current date!!!"
+            res = "Wrong Start Data, less than current date!!!"
         }
         if (endingDate > endingDateMax || endingDate < startingDate) {
-            res = "Wrong End Date"
+            res += " Wrong End Date!!!"
         }
         if (hourFrom < 0 || hourFrom > 23) {
-            res = "Wrong hour from!!!"
+            res += " Wrong hour from!!!"
         }
         if (hourTo < 0 || hourTo > 23 || hourTo < hourFrom) {
-            res = "Wrong hour to!!!"
+            res += " Wrong hour to!!!"
         }
         return res;
     }
