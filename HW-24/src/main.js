@@ -1,10 +1,10 @@
 import { weatherConfig } from "./config/weather-config.js";
 import { DataProcessor } from "./service/DataProcessor.js";
-const data = '';
-const dataProcessor = new DataProcessor(weatherConfig.url);
-async function displayTemperatures() {
-    const data = await dataProcessor.getData(29.5577, 34.9519);
-console.log(data.hourly.time[0]);
+
+const dataProcessor = new DataProcessor(weatherConfig.url, weatherConfig.cities);
+async function displayTemperatures(city) {
+    const data = await dataProcessor.getTemperatureData(city, "2023-02-15", "2023-02-15", 20, 23);
+    console.log(data);
 }
-displayTemperatures();
-//https://api.open-meteo.com/v1/gfs?hourly=temperature_2m&timezone=IST&latitude=32.7940&longitude=34.9896
+
+displayTemperatures('Eilat');
