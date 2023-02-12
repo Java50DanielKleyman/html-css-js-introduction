@@ -32,7 +32,7 @@ export class DataProcessor {
                 hour: +elm.substring(11, 13),
                 temperature: resultTemperatureArray[i]
             }
-        })
+        })        
         return resultWeatherArray;
     }
     checkInputData(city, startDate, endDate, hourFrom, hourTo) {
@@ -46,7 +46,7 @@ export class DataProcessor {
         const forecastDays = 16;
         const endingDateMax = new Date(new Date().getTime() + (forecastDays * 24 * 60 * 60 * 1000));
         if (startingDate < currentDate) {
-            res = "Wrong Start Data, less than current date!!!"
+            res = "Wrong Start Date, less than current date!!!"
         }
         if (endingDate > endingDateMax || endingDate < startingDate) {
             res += " Wrong End Date!!!"
