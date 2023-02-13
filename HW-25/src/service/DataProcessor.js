@@ -26,14 +26,13 @@ export class DataProcessor {
         const resultTemperatureArray = temperatureArray.slice(startIndex, endIndex + 1);
 
         let resultWeatherArray = [];
-        resultWeatherArray = resultTimeArray.map((elm, i) => {
+        return resultWeatherArray = resultTimeArray.map((elm, i) => {
             return {
                 date: elm.substring(0, 10),
                 hour: +elm.substring(11, 13),
                 temperature: resultTemperatureArray[i]
             }
-        })        
-        return resultWeatherArray;
+        })                
     }
     checkInputData(city, startDate, endDate, hourFrom, hourTo) {
         let res = '';
