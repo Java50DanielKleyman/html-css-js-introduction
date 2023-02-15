@@ -78,7 +78,6 @@ export class DataForm {
         this.#dateToElement.min = minDateStr;
         this.#dateFromElement.max = maxDateStr;
         this.#dateToElement.max = maxDateStr;
-
     }
     addHandler(handlerFun) {
         this.#formElement.addEventListener("submit", async (event) => {
@@ -88,11 +87,11 @@ export class DataForm {
             data.dateTo = this.#dateToElement.value;
             data.hourFrom = this.#hourFromElement.value;
             data.hourTo = this.#hourToElement.value;
-            this.checkTime()
+            this.checkDateAndTime()
             await handlerFun(data);
         })
     }
-    checkTime() {
+    checkDateAndTime() {
         const startingDate = new Date(data.dateFrom);
         const endingDate = new Date(data.dateTo);
         if (startingDate > endingDate) {
