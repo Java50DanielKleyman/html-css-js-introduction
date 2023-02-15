@@ -15,7 +15,7 @@ export class DataForm {
     #citiesElement;
     #hourFromElement;
     #hourToElement;
-   
+
     constructor(parentId, maxDays) {
         const parentElement = document.getElementById(parentId);
         this.#fillForm(parentElement);
@@ -25,10 +25,10 @@ export class DataForm {
         this.#cities = weatherConfig.cities;
         this.#citiesElement = document.getElementById(CITY_ID);
         this.#hourFromElement = document.getElementById(HOUR_FROM_ID);
-        this.#hourToElement = document.getElementById(HOUR_TO_ID);                     
+        this.#hourToElement = document.getElementById(HOUR_TO_ID);
         this.#setCities();
-        this.#setHours();        
-       // this.#setMinMaxDates(maxDays);
+        this.#setHours();
+        this.#setMinMaxDates(maxDays);
     }
     #fillForm(parentElement) {
         parentElement.innerHTML = `<form id="${FORM_ID}">
@@ -74,10 +74,10 @@ export class DataForm {
         maxDate.setDate(maxDayOfMonth);
         const minDateStr = current.toISOString().split("T")[0];
         const maxDateStr = maxDate.toISOString().split("T")[0];
-        // this.#dateFromElement.min = minDateStr;
-        // this.#dateToElement.min = minDateStr;
-        // this.#dateFromElement.max = maxDateStr;
-        // this.#dateToElement.max = maxDateStr;
+        this.#dateFromElement.min = minDateStr;
+        this.#dateToElement.min = minDateStr;
+        this.#dateFromElement.max = maxDateStr;
+        this.#dateToElement.max = maxDateStr;
 
     }
     addHandler(handlerFun) {
@@ -89,12 +89,17 @@ export class DataForm {
             data.dateTo = this.#dateToElement.value;
             data.hourFrom = this.#hourFromElement.value;
             data.hourTo = this.#hourToElement.value;
-            const message = await handlerFun(data);
-            // if (message) {
-            //     alert(message)
-            // } else {
-            //     this.#formElement.reset();
-            // }
+            const startingDate = new Date(data.dateFrom);
+            const endingDate = new Date(data.dateTo);
+            if (startingDate > endingDate) {
+                alert("Date TO less then Date FROM")
+                this.#formElement.reset();
+            }
+            if (data.hourTo < data.hourFrom) {
+                alert("Hour TO less then Hour FROM")
+                this.#formElement.reset();
+            }
+            await handlerFun(data);
         })
     }
 
