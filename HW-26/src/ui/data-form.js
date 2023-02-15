@@ -6,7 +6,7 @@ const DATE_TO_ID = "date-to-id";
 const CITY_ID = "city-select";
 const HOUR_FROM_ID = "hour-from-select";
 const HOUR_TO_ID = "hour-to-select";
-
+const data = {};
 export class DataForm {
     #formElement;
     #dateFromElement;
@@ -83,24 +83,25 @@ export class DataForm {
     addHandler(handlerFun) {
         this.#formElement.addEventListener("submit", async (event) => {
             event.preventDefault();
-            const data = {};
             data.city = this.#citiesElement.value;
             data.dateFrom = this.#dateFromElement.value;
             data.dateTo = this.#dateToElement.value;
             data.hourFrom = this.#hourFromElement.value;
             data.hourTo = this.#hourToElement.value;
-            const startingDate = new Date(data.dateFrom);
-            const endingDate = new Date(data.dateTo);
-            if (startingDate > endingDate) {
-                alert("Date TO less then Date FROM")
-                this.#formElement.reset();
-            }
-            if (data.hourTo < data.hourFrom) {
-                alert("Hour TO less then Hour FROM")
-                this.#formElement.reset();
-            }
+            this.checkTime()
             await handlerFun(data);
         })
     }
-
+    checkTime() {
+        const startingDate = new Date(data.dateFrom);
+        const endingDate = new Date(data.dateTo);
+        if (startingDate > endingDate) {
+            alert("Date TO less then Date FROM")
+            this.#formElement.reset();
+        }
+        if (data.hourTo < data.hourFrom) {
+            alert("Hour TO less then Hour FROM")
+            this.#formElement.reset();
+        }
+    }
 }
