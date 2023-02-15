@@ -9,7 +9,7 @@ export class Table {
         if (!parentElement) {
             throw `wrong parentId ${parentId}`
         }
-       parentElement.innerHTML = ` <h3 class="table-logo">${tableName} </h3>
+        parentElement.innerHTML = ` <h3 class="table-logo">${tableName} </h3>
         <table class="center">
             <thead>
                 <tr>
@@ -22,16 +22,16 @@ export class Table {
         </table>`
         this.#tbodyElement = document.getElementById(tableName);
     }
-    addRow(object){
-        this.#tbodyElement.innerHTML += getRow(object, this.#schema);
+    addRow(array) {
+        this.#tbodyElement.innerHTML = getRow(array, this.#schema);
     }
-    
 }
 function getHeader(schema) {
     return schema.map(obj => `<th>${obj.columnName}</th>`).join('');
 }
-function getRow(data, schema) {
-    return `<tr> ${getTds(data, schema)} </tr>`
+function getRow(array, schema) {
+    return array.map((obj) => `<tr>${getTds(obj, schema)} </tr>`
+    ).join('')
 }
 function getTds(data, schema) {
     return schema.map(obj => `<td>${data[obj.fieldName]}</td>`).join('')
