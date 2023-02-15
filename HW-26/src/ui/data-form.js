@@ -90,6 +90,8 @@ export class DataForm {
             this.checkDateAndTime()
             await handlerFun(data);
         })
+        this.#formElement.addEventListener("reset", (event)=> document.
+        getElementById("Weather Forecast").innerHTML='')
     }
     checkDateAndTime() {
         const startingDate = new Date(data.dateFrom);
