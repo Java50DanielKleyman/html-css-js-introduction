@@ -27,6 +27,14 @@ body, html {
     text-align: center;
   }
   .form-select-group{
-    margin-top: 2vh;
-    
+    margin-top: 2vh;    
   }
+  
+  .table-section-active{
+    display: block;
+  }
+  .table-section-hidden{
+    display: none;
+  }
+  
+  

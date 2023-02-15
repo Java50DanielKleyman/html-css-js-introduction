@@ -15,6 +15,7 @@ export class DataForm {
     #citiesElement;
     #hourFromElement;
     #hourToElement;
+    #tableSectionElement;
 
     constructor(parentId, maxDays) {
         const parentElement = document.getElementById(parentId);
@@ -26,6 +27,7 @@ export class DataForm {
         this.#citiesElement = document.getElementById(CITY_ID);
         this.#hourFromElement = document.getElementById(HOUR_FROM_ID);
         this.#hourToElement = document.getElementById(HOUR_TO_ID);
+        this.#tableSectionElement = document.getElementById("table-section")
         this.#setCities();
         this.#setHours();
         this.#setMinMaxDates(maxDays);
@@ -82,6 +84,8 @@ export class DataForm {
     addHandler(handlerFun) {
         this.#formElement.addEventListener("submit", async (event) => {
             event.preventDefault();
+            this.#tableSectionElement.classList.remove("table-section-hidden");
+            this.#tableSectionElement.classList.add("table-section-active");
             data.city = this.#citiesElement.value;
             data.dateFrom = this.#dateFromElement.value;
             data.dateTo = this.#dateToElement.value;
@@ -90,8 +94,10 @@ export class DataForm {
             this.checkDateAndTime()
             await handlerFun(data);
         })
-        this.#formElement.addEventListener("reset", (event)=> document.
-        getElementById("Weather Forecast").innerHTML='')
+        this.#formElement.addEventListener("reset", (event) => {
+            this.#tableSectionElement.classList.remove("table-section-active");
+            this.#tableSectionElement.classList.add("table-section-hidden");
+        });
     }
     checkDateAndTime() {
         const startingDate = new Date(data.dateFrom);
