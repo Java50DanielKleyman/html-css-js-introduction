@@ -8,10 +8,11 @@ const schema = [
     { columnName: 'Hour', fieldName: 'hour' },
     { columnName: "Temperature", fieldName: 'temperature' }
 ]
-let inputData = {}
+
 const dataForm = new DataForm("form-section", weatherConfig.maxDays);
 const tableWeather = new Table("table-section", "Weather Forecast", schema);
 async function handlerFun(data) {
+    let inputData = {}
     inputData = await dataProcessor.getTemperatureData(data.city,
         data.dateFrom, data.dateTo, data.hourFrom, data.hourTo);    
      console.log(inputData)
