@@ -17,6 +17,7 @@ async function handlerFun(data) {
         data.dateFrom, data.dateTo, data.hourFrom, data.hourTo);    
      console.log(inputData)
      tableWeather.addRow(inputData);
+     
 }
 dataForm.addHandler(handlerFun);
 
