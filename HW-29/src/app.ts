@@ -31,7 +31,7 @@ function shiftRound(str: string, shift: number): string {
     let charCodeArr = checkUnshiftCode(inputStr, shiftPositive);
     return charCodeArr.reduce((res, cur) => {
       return res += String.fromCharCode(cur)
-    }, '')
+    }, '');
   }
   function checkUnshiftCode(inputStr: string, shift: number): number[] {
     let charCodeArr = [];
