@@ -2,6 +2,9 @@
 function shiftRound(str, shift) {
     let inputStr = str.toLowerCase();
     let shiftPositive = Math.abs(shift);
+    if (shiftPositive > 25) {
+        shiftPositive = shiftPositive % 25;
+    }
     let charCodeArr = checkShiftCode(inputStr, shiftPositive);
     return charCodeArr.reduce((res, cur) => {
         return res += String.fromCharCode(cur);
@@ -26,10 +29,13 @@ function checkShiftCode(inputStr, shift) {
     }
     return charCodeArr;
 }
-console.log(shiftRound("A@abx!", -1));
+console.log(shiftRound("A@abx!", -28));
 function unshiftRound(str, shift) {
     let inputStr = str.toLowerCase();
     let shiftPositive = Math.abs(shift);
+    if (shiftPositive > 25) {
+        shiftPositive = shiftPositive % 25;
+    }
     let charCodeArr = checkUnshiftCode(inputStr, shiftPositive);
     return charCodeArr.reduce((res, cur) => {
         return res += String.fromCharCode(cur);
@@ -54,5 +60,5 @@ function checkUnshiftCode(inputStr, shift) {
     }
     return charCodeArr;
 }
-console.log(unshiftRound("aeFb!", -4));
+console.log(unshiftRound("aeFb!", -51));
 //# sourceMappingURL=app.js.map
