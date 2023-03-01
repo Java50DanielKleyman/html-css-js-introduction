@@ -21,8 +21,8 @@ export class CipherImp implements Cipher {
         })
         return arRes.join('');
     }
-    decipher(cipherText: string): string {
-        const arStr: Array<string> = Array.from(cipherText);
+    decipher(plainText: string): string {
+        const arStr: Array<string> = Array.from(plainText);
         const arRes: Array<string> = arStr.map(symb => {
             let res: string = symb;
             if (symb <= '~' && symb >= ' ') {
