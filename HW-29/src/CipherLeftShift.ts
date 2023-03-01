@@ -1,6 +1,7 @@
 import { CipherImp } from "./CipherDecipher";
+const flag: number = 1;
 export class CipherLeftShift extends CipherImp{
-    //todo - наоборот от райтшифт
-    //3 свойства 
-    //
+    constructor(shift: number){
+        super(shift, flag);
+    }    
 }

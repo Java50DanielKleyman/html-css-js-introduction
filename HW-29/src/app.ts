@@ -1,10 +1,9 @@
+import { CipherLeftShift } from "./CipherLeftShift"
 import { CipherRightShift } from "./CipherRightShift"
 import { displayCipherDecipher } from "./displayCipherDecipher"
-/*
-TODO
-new cipherleftshift(shift)
-new cipherrightshift(shift)
-*/
+
 const cipherrightshift:  CipherRightShift = new CipherRightShift(2)
+const cipherleftshift: CipherLeftShift = new CipherLeftShift(1)
 displayCipherDecipher(cipherrightshift, 'aaa')
+displayCipherDecipher(cipherleftshift, 'aaa')
 
