@@ -1,14 +1,22 @@
 {
-  "name": "ts-project",
+  "name": "html-css-js-introduction",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Java50MyTelran/html-css-js-introduction.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Java50MyTelran/html-css-js-introduction/issues"
+  },
+  "homepage": "https://github.com/Java50MyTelran/html-css-js-introduction#readme",
   "devDependencies": {
     "typescript": "^4.9.5"
   }
