@@ -1,9 +1,8 @@
-// общее не зависящее от детального алгоритма - сдвига влева или вправо
 import { Cipher } from "./Cipher";
 type MapperFunction = (symb: string, shift: number) => string;
-const aCodeAscii: number = 'a'.charCodeAt(0);
-const zCodeAscii: number = 'z'.charCodeAt(0);
-const nEnglishLetters: number = zCodeAscii - aCodeAscii + 1;
+const startCodeAscii: number = ' '.charCodeAt(0);
+const endCodeAscii: number = '~'.charCodeAt(0);
+const nStrings: number = endCodeAscii - startCodeAscii + 1;
 export class CipherImp implements Cipher {
     constructor(protected shift: number, protected flag: number) {
         this.shift = shift;
@@ -13,7 +12,7 @@ export class CipherImp implements Cipher {
         const arStr: Array<string> = Array.from(plainText);
         const arRes: Array<string> = arStr.map(symb => {
             let res: string = symb;
-            if (symb <= 'z' && symb >= 'a') {
+            if (symb <= '~' && symb >= ' ') {
                 if (!this.flag) {
                     res = this.mapperCipher(symb, this.shift);
                 } else { res = this.mapperDecipher(symb, this.shift) };
@@ -26,7 +25,7 @@ export class CipherImp implements Cipher {
         const arStr: Array<string> = Array.from(cipherText);
         const arRes: Array<string> = arStr.map(symb => {
             let res: string = symb;
-            if (symb <= 'z' && symb >= 'a') {
+            if (symb <= '~' && symb >= ' ') {
                 if (!this.flag) {
                     res = this.mapperDecipher(symb, this.shift);
                 } else { res = this.mapperCipher(symb, this.shift) };
@@ -37,11 +36,11 @@ export class CipherImp implements Cipher {
     }    
     mapperCipher(symb: string, shift: number): string {
         const actualShift: number =
-            (symb.charCodeAt(0) - aCodeAscii + shift) % nEnglishLetters;
-        return String.fromCharCode(aCodeAscii + actualShift);
+            (symb.charCodeAt(0) - startCodeAscii + shift) % nStrings;
+        return String.fromCharCode(startCodeAscii + actualShift);
     }
     mapperDecipher(symb: string, shift: number): string {
-        const actualShift: number = (zCodeAscii - symb.charCodeAt(0) + shift) % nEnglishLetters;
-        return String.fromCharCode(zCodeAscii - actualShift);
+        const actualShift: number = (endCodeAscii - symb.charCodeAt(0) + shift) % nStrings;
+        return String.fromCharCode(endCodeAscii - actualShift);
     }
 }
