@@ -4,6 +4,6 @@ import { displayCipherDecipher } from "./displayCipherDecipher"
 
 const cipherrightshift:  CipherRightShift = new CipherRightShift(2)
 const cipherleftshift: CipherLeftShift = new CipherLeftShift(3)
-displayCipherDecipher(cipherrightshift, 'aaa"')
-displayCipherDecipher(cipherleftshift, 'aaa"')
+displayCipherDecipher(cipherrightshift, 'aaa')
+displayCipherDecipher(cipherleftshift, 'def')
 

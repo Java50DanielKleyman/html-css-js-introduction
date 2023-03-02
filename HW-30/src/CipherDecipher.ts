@@ -4,21 +4,19 @@ const startCodeAscii: number = ' '.charCodeAt(0);
 const endCodeAscii: number = '~'.charCodeAt(0);
 const nStrings: number = endCodeAscii - startCodeAscii + 1;
 export class CipherImp implements Cipher {
-    constructor(protected shift: number, protected flag: number) {
-        this.shift = shift;
-        this.flag = flag;
+    #mapperFunCipher;
+    #mapperFunDecipher;
+    constructor(protected shift: number, 
+        mapperFunCipher: MapperFunction, mapperFunDecipher: MapperFunction) {
+        this.shift = shift;        
+        this.#mapperFunCipher =  mapperFunCipher;
+        this.#mapperFunDecipher = mapperFunDecipher;
     }
-    cipher(plainText: string): string {
-        if (!this.flag) {
-            return this.cipherDecipher(plainText, this.shift, this.mapperCipher)
-        }
-        return this.cipherDecipher(plainText, this.shift, this.mapperDecipher)
+    cipher(plainText: string): string {       
+        return this.cipherDecipher(plainText, this.shift, this.#mapperFunCipher)
     }
-    decipher(plainText: string): string {
-        if (!this.flag) {
-            return this.cipherDecipher(plainText, this.shift, this.mapperDecipher)
-        }
-        return this.cipherDecipher(plainText, this.shift, this.mapperCipher)
+    decipher(plainText: string): string {       
+        return this.cipherDecipher(plainText, this.shift, this.#mapperFunDecipher)
     }
     cipherDecipher(str: string, shift: number,
         mapperFun: MapperFunction): string {
