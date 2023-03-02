@@ -15,8 +15,8 @@ export class CipherImp implements Cipher {
     cipher(plainText: string): string {       
         return this.cipherDecipher(plainText, this.shift, this.#mapperFunCipher)
     }
-    decipher(plainText: string): string {       
-        return this.cipherDecipher(plainText, this.shift, this.#mapperFunDecipher)
+    decipher(cipherText: string): string {       
+        return this.cipherDecipher(cipherText, this.shift, this.#mapperFunDecipher)
     }
     cipherDecipher(str: string, shift: number,
         mapperFun: MapperFunction): string {
